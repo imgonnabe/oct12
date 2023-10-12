@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+
+    <select id="findAll" resultType="module.Member">
+        select *
+        from TB_MEMBER
+    </select>
+
+    <select id="findById" resultType="module.Member">
+        -- TODO: 아이디를 가지고 회원 찾기
+        select * from TB_MEMBER
+        where ID = #{id}
+    </select>
+
+    <select id="findByName" resultType="module.Member">
+        -- TODO: 이름 가지고 회원 찾기
+        select * from TB_MEMBER
+        where NAME = #{name}
+    </select>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        -- TODO: 회원 추가하기
+        insert into TB_MEMBER(NAME, AGE)
+        values (#{name}, #{age})
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+    </insert>
+
+    <update id="update">
+        -- TODO: 아이디 가지고 회원 정보 수정하기
+        update TB_MEMBER set NAME = #{name}, AGE = #{age}
+        where ID = #{id}
+    </update>
+
+    <delete id="delete" parameterType="long">
+        -- TODO: 아이디 가지고 회원 삭제하기
+        delete from TB_MEMBER where ID = #{id}
+    </delete>
+
+    <delete id="clear">
+        -- TODO: 전체 회원 삭제하기
+        delete from TB_MEMBER
+    </delete>
+
+</mapper>
