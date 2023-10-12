@@ -2,7 +2,7 @@ package support;
 
 import org.springframework.lang.Nullable;
 
-public class Response<T> {
+public class Response<T> {// 컴파일 시점에 타입을 정해줌
 
 	private int code;
 

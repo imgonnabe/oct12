@@ -22,7 +22,7 @@ public class MemberService {
         return memberRepository.findById(id);
     }
 
-    public Optional<Member> findByName(String name) {
+    public Optional<Member> findByName(String name) {// null될 수도 있음
         return memberRepository.findByName(name);
     }
 
