@@ -44,6 +44,7 @@ public class MemberApiController {
     @PostMapping// postman에서 body > raw > json > {"name": "김길동","age": 12}
     public ResponseEntity<Response<Long>> addForm(@RequestBody Member member) {
     	Optional<Member> test = memberService.findByName(member.getName());
+    	System.out.println(test.isPresent());
     	test.ifPresent(anything -> {
     		System.out.println(anything);
     	});
